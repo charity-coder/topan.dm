@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Registration & Payment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url(WhatsApp\ Image\ 2024-12-18\ at\ 4.20.26\ AM.jpeg);
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            flex: 1 1 45%; /* Each form takes up 45% of the space */
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-align: center;
+            color:red;
+            font-size: larger;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: hsl(0, 88%, 50%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form-section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Membership Registration Form -->
+    <div class="form-section">
+        <h3>Membership Registration</h3>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" placeholder="John Baba" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="example@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" placeholder="08012345678" required>
+            </div>
+            <div class="form-group">
+              <label for="location">Your location:</label>
+              <input type="text" id="Address" placeholder="Abuja" required>
+          </div>
+          <div class="form-group">
+            <label for="commodity">Commodity Name:</label>
+            <input type="text" id="Commodity" placeholder="Tomato" required>
+        </div>
+        <div class="form-group">
+          <label for="Age">Age:</label>
+          <input type="number" id="number" placeholder="60" required>
+      </div>
+            <button type="button" class="btn" onclick="registerMember()">Register</button>
+        </form>
+    </div>
+
+    <!-- Payment Form -->
+    <div class="form-section">
+        <h3>Payment Form</h3>
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="customerName">Name:</label>
+                <input type="text" id="customerName" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="customerEmail">Email:</label>
+                <input type="email" id="customerEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="customerPhone">Phone Number:</label>
+                <input type="tel" id="customerPhone" placeholder="Enter your phone number" required>
+            </div>
+            <button type="button" class="btn" onclick="makePayment()">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+<script>
+    // Function to send SMS
+    function sendSMS(phone, message) {
+        // This is a placeholder for sending SMS using your SMS API
+        console.log(`Sending SMS to ${phone}: ${message}`);
+        // Replace with your API integration (e.g., Twilio, Africa's Talking)
+    }
+
+    // Registration Function
+    function registerMember() {
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        if (fullName && email && phone) {
+            alert(`Welcome ${fullName}, you have successfully registered!`);
+            sendSMS(phone, `Welcome to TOPAN, ${fullName}! Thank you for registering.`);
+        } else {
+            alert("Please fill all fields.");
+        }
+    }
+
+    // Payment Function
+    function makePayment() {
+        const customerName = document.getElementById('customerName').value;
+        const customerEmail = document.getElementById('customerEmail').value;
+        const customerPhone = document.getElementById('customerPhone').value;
+
+        if (customerName && customerEmail && customerPhone) {
+            FlutterwaveCheckout({
+                public_key: "YOUR_PUBLIC_KEY", // Replace with your actual public key
+                tx_ref: "unique_transaction_" + Date.now(),
+                amount: 100, // Replace with the actual amount
+                currency: "NGN",
+                payment_options: "card, banktransfer, ussd",
+                customer: {
+                    email: customerEmail,
+                    phonenumber: customerPhone,
+                    name: customerName,
+                },
+                customizations: {
+                    title: "TOPAN Membership Payment",
+                    description: "Payment for membership",
+                    logo: "https://example.com/logo.png", // Optional
+                },
+                callback: function (data) {
+                    console.log(data); // Log the payment response for verification
+                    alert("Payment successful! Transaction ID: " + data.transaction_id);
+                    sendSMS(customerPhone, `Congratulations ${customerName}! Your payment was successful. Welcome to TOPAN.`);
+                },
+                onclose: function () {
+                    alert("Payment process was closed.");
+                },
+            });
+        } else {
+            alert("Please fill all fields.");
+        }
+    }
+</script>
+
+</body>
+</html>

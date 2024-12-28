@@ -1,0 +1,427 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tomatoes and Orchard Producers Association of Nigeria</title>
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="css/style.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: hsl(0, 98%, 51%);
+            color: rgb(247, 245, 245);
+            padding: 0rem;
+            text-align: center;
+        }
+        header img {
+            height: 100px;
+            margin-right: 1rem;
+        }
+        header h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
+            font-weight: bolder;
+    }
+            
+        nav {
+            background-color: hsl(0, 98%, 51%);
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+         .welcome-banner {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            background-color: #ffff;
+            color: #f00b0b;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+        .welcome-text {
+            display: inline-block;
+            animation: scroll-text 10s linear infinite;
+        }
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slides img.active {
+            display: block;
+        }
+
+        .content {
+            padding: 2rem;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .map {
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .events {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .profile.center {
+        display: flex;
+        justify-content: center; /* Center the profile card horizontally */
+        flex-wrap: wrap;
+}
+        .profile-card {
+        background-color: hsl(0, 98%, 51%);
+        padding: 1.5rem;
+        text-align: justify;
+        box-shadow: 0 2px 5px rgba(248, 245, 245, 0.1);
+        border-radius: 30px;
+        width: 250px;
+        color: rgb(238, 231, 231);
+        flex: 0 1 100%; /* Make sure it doesn't share space with other elements */
+        max-width: 300px; /* Limit the maximum width */
+        margin: 0 auto; /* Center the card horizontally within its container */
+}
+    .events {
+        display: flex;
+        flex-direction: column; /* Stack the images vertically */
+        align-items: center;    /* Center-align the images horizontally */
+        justify-content: center;
+        gap: 1rem;              /* Add space between images */
+}
+
+.event-img {
+    width: 100%;            /* Ensure images take up full width or adjust as needed */
+    max-width: 600px;       /* Limit the maximum width of the images */
+    height: auto;           /* Maintain aspect ratio */
+}
+.events {
+    display: flex;
+    flex-wrap: wrap;      /* Allow wrapping to the next line */
+    justify-content: center; /* Center-align the images */
+    gap: 1rem;            /* Add space between the images */
+}
+
+.event-img {
+    width: calc(50% - 1rem); /* Set each image to occupy 50% of the row minus the gap */
+    max-width: 100%;         /* Ensure the image doesn't exceed its container */
+    height: auto;            /* Maintain aspect ratio */
+    @media (max-width: 600px);
+    width: 100%; /* Make each image take full width on smaller screens */ 
+
+}
+.events {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust width as needed */
+    height: 300px;    /* Set a fixed height for the images */
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.event-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.event-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: flipImages 8s infinite;
+}
+
+.event-img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.event-img:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.event-img:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.event-img:nth-child(4) {
+    animation-delay: 6s;
+}
+
+@keyframes flipImages {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    55% {
+        opacity: 0;
+    }
+}
+#events {
+    background-color: hsl(0, 0%, 100%);  
+    padding: 2rem;
+    border-radius: 10px;        /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+        .event-img {
+            width: 900px;
+            margin: 1rem;
+            height: 300px;
+        }
+        .profile {
+            display: flex;
+            justify-self: center;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 9000px;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            align-content: center;
+        }
+        .profile-card {
+            background-color: hsl(0, 91%, 50%);
+            padding: 1.5rem;
+            text-align: justify;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            width: 250px;
+            color: rgb(255, 255, 255);
+            flex: 1 1 calc(50% - 2rem);
+            max-width: calc(50% - 2rem);
+            align-content: center;
+        }
+        .profile-card h3{
+            justify-items: center;
+            text-align: center;
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;/* Center the image and add margin below */
+            display: block; /* Make the image a block-level element */
+            justify-content: center;
+            
+
+        }
+         h2{
+            color: #05922f;
+        }
+
+        footer {
+            background-color: hsl(0, 98%, 51%);;
+            color: white;
+            text-align: center;
+            padding: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="IMG-20241211-WA0004.jpg" alt="TOPAN Logo">
+        <h1>Tomatoes and Orchard Producers Association of Nigeria (TOPAN)</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="payment.html">Payment</a>
+    </nav>
+    <div class="welcome-banner">
+        <div class="welcome-text">Welcome to The 2nd National Tomato Conference in Nigeria 2025!</div>
+    </div>
+    </div>
+    <section id="home" class="slider">
+        <div class="slides">
+            <img src="photo-1683008952458-dc02ac67f382.avif" class="active" alt="Image 1">
+            <img src="istockphoto-545995344-612x612.webp" alt="Image 2">
+            <img src="premium_photo-1661827989152-6306a475e618.avif" alt="Image 3">
+            <img src="premium_photo-1661827989152-6306a475e618.avif" alt="Image 4">
+            <img src="istockphoto-2165011862-612x612.webp" alt="Image 5">
+        </div>   
+        </section>
+        </section>
+    </section>
+    
+    <div id="about" class="content">
+         <div class="content">
+        <h2>Meet Our Team</h2>
+        <div class="profile center">
+            <div class="profile-card">
+                <img src="image2.png" alt="President Image">
+                <h3>Oyeleke Bola Job</h3>
+                <p><strong>President/CEO</strong></p>
+                <p>Oyeleke Bola Job has a degree in Master in Financial Economics (MFE) (In View) from the University of Abuja, a PGD in Business Administration from the University of Abuja, and a B.Sc in Economics from the University of Abuja. He also studied at the Federal College of Horticulture, Dadin Kowa, Gombe State.</p>
+                <p>Oyeleke Bola Job (COE/MD) advocates for long-term sustainability built on continuous capacity building in the communities. He envisions agricultural production as a means of alleviating extreme poverty and improving food security by strengthening employment opportunities, increasing farming knowledge, and improving the quality of life, making farming more rewarding and life in agricultural areas more attractive.</p>
+            </div>
+        </div>
+        
+        </div>
+            <div class="profile">
+                <div class="profile-card">
+                    <img src="image3.png" alt="President Image">
+                    <h3>Miss Chidiebere Duru Charle</h3>
+                    <p><strong>Executive Secretary</strong></p>
+                    <p>Miss Duru-Chidiebere Angle she was a graduate of Bsc. Food science. Graduated from Obafemi Awolowo University.</p>
+                    <p>Also work with the East West Seed on small scale farmers in Abuja.</p>
+                </div>
+            <div class="profile-card">
+                <img src="image4.png" alt="Secretary Image">
+                <h3>Dr.Ibitoye Dorcase Olubumi</h3>
+                <p><strong>Board Member</strong></p>
+                <p>Dr Degree on plant from University of Ibadan Nigeria</p>
+            </div>
+    </div>
+        <div class="profile">
+            <div class="profile-card">
+                <img src="fol.jpeg" alt="President Image">
+                <h3>Miss Folashade kudirat Oyeleke</h3>
+                <p><strong>Financial Secretary </strong></p>
+                <p>TOPAN</p> 
+            </div>
+        <div class="profile-card">
+            <img src="ade.jpeg" alt="chief Executive officer Image">
+            <h3>Mr Adetiloye Continental</h3>
+            <p><strong>Chief Executive Officer</strong></p>
+            <p>Adetiloye Continental is a visionary leader and expert in agribusiness
+                developmentwith over a decade of experience in tackling postharvest challenges 
+                across Africa.As the Founder of PostHarvest Africa (PHA), he has dedicated 
+                his career to reducingfood losses, improving supply chain efficiency, 
+                and fostering innovation in theagribusiness sector.
+                Adetiloye has worked extensively with farmers, government agencies,
+                 private-sector stakeholders, and international organizations 
+                 to develop scalable solutionsthat address critical issues in postharvest systems.
+                  Beyond his work with PHA, Adetiloye serves as the Executive Secretary of the 
+                  Produce Export Development Alliance and co-founded Awesome Fresh, 
+                  anagricultural logistics and cold chain company supporting over 1,500 foodprocessors.
+                  His mission is clear: to create efficient food systems that can sustainably 
+                  feed over 900 million Africans daily while unlocking significant economic potential for the continent.</p>
+            </div>
+        </div>
+            <div class="profile">
+                <div class="profile-card">
+                    <img src="image7.png" alt="IT Image">
+                    <h3>MR CHINEDU FELIX OPARA</h3>
+                    <p><strong>IT department</strong></p>
+                    <p>MR CHINEDU FELIX OPARA, HAS A,  B.SC. 
+                        AGRICULTURE, M.SC BUDAPEST METROPOLITAN 
+                        UNIVERSITY, BUDAPEST, Hungary, INVIEW, Project Design and 
+                        Management SB.Sc University of Agriculture Makurdi, Benue State, Nigeria. 
+                        Statistics/Computer Science. Passionate in building career in Education, Agriculture and IT development. Clear set objectives to enhance my skills in Business development and strategic planning and handling of data processing equipment in a constructive and productive manner.  For extensive experience </p>
+                </div>
+            <div class="profile-card">
+                <img src="image8.png" alt="Benue Coordinator Image">
+                <h3>Mr Enoch Agbangya</h3>
+                <p><strong>Benue Coordinator</strong></p>
+                <p>Mr Enoch Agbangya has a degree in  B.Sc. 
+                    Forestry,  Christian Rural Development 
+                    Association of Nigeria (CRUDAN),Disaster 
+                    Management Workshop, Vocational training of 
+                    Youth and women in Tomato Production, 
+                    Processing and Marketing organized by 
+                    Federal Ministry of Agric in collaboration with 
+                    MDGs Nigeria ,                                                             
+                    E-Learning International Workshop, 
+                    Organized by Centre for Food technology and 
+                    Research (CEFTER) Sponsored by The World Bank, Basic Leadership Training.</p>
+        </div>
+        </div>
+    </div>
+</div>
+    <div class="profile">
+        <div class="profile-card">
+            <img src="ogbui3.jpeg" alt="Director of Plant">
+            <h3>Miss Ogbui Chika Scholastica  </h3>
+            <p><strong>Director of Plant Secience</strong></p>
+            <p>TOPAN
+               </p>
+        </div>
+
+        
+</div>
+    <div id="events" class="content">
+        <h2>Event Pictures</h2>
+        <div class="events">
+            <p>AGRICULTURAL TOUR TO BRAZIL
+            </p>
+            <img src="WhatsApp Image 2024-12-18 at 4.20.26 AM.jpeg" class="event-img" alt="Event 1">
+            <img src="WhatsApp Image 2024-12-18 at 4.22.54 AM.jpeg" class="event-img" alt="Event 2">
+            <img src="WhatsApp Image 2024-12-18 at 4.20.27 AM.jpeg" class="event-img" alt="Event 3">
+        </div>
+    </div>
+
+    
+    </div>
+
+    <div id="contact" class="content">
+        <h2>Contact Us</h2>
+        <p>Address: 2nd Floor, NICON Plaza, Plot 242 Mohammadu Buhari Way, Central Business District, Abuja</p>
+        <p>Phone: 0703 009 0366</p>
+        <div class="map">
+            <iframe src="https://www.google.com/maps?q=NICON+Plaza,+Plot+242+Mohammadu+Buhari+Way,+Abuja&output=embed" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2024 Tomatoes and Orchard Producers Association of Nigeria
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.slides img');
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 3000);
+    </script>
+</body>
+</html>
